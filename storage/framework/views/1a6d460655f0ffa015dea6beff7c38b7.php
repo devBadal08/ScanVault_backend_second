@@ -8,18 +8,24 @@
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
+
     <!--[if BLOCK]><![endif]--><?php if($showFormPage): ?>
+        
         <div class="relative mb-6">
             <?php if (isset($component)) { $__componentOriginal6330f08526bbb3ce2a0da37da512a11f = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal6330f08526bbb3ce2a0da37da512a11f = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.button.index','data' => ['wire:click' => 'back','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center px-4 py-2 rounded transition']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.button.index','data' => ['wire:click' => 'back','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white 
+                       dark:bg-blue-700 dark:hover:bg-blue-800
+                       inline-flex items-center px-4 py-2 rounded transition']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('filament::button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:click' => 'back','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center px-4 py-2 rounded transition']); ?>
+<?php $component->withAttributes(['wire:click' => 'back','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white 
+                       dark:bg-blue-700 dark:hover:bg-blue-800
+                       inline-flex items-center px-4 py-2 rounded transition']); ?>
                 ← Back
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -32,13 +38,17 @@
 <?php unset($__componentOriginal6330f08526bbb3ce2a0da37da512a11f); ?>
 <?php endif; ?>
 
-            <h2 class="text-xl font-bold text-center">
+            <h2 class="text-xl font-bold text-center 
+                       text-gray-900 dark:text-gray-100">
                 <?php echo e($editingUserId ? 'Edit User' : 'Create New User'); ?>
 
             </h2>
         </div>
 
-        <div class="bg-white shadow rounded-lg p-6">
+        
+        <div class="shadow rounded-lg p-6
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100">
             <form wire:submit.prevent="saveUser">
                 <?php echo e($form); ?>
 
@@ -68,18 +78,25 @@
                 </div>
             </form>
         </div>
+
     <?php else: ?>
+
+    
     <div class="relative mb-6">
         <?php if (isset($component)) { $__componentOriginal6330f08526bbb3ce2a0da37da512a11f = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal6330f08526bbb3ce2a0da37da512a11f = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.button.index','data' => ['wire:click' => 'goBack','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center px-4 py-2 rounded transition']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.button.index','data' => ['wire:click' => 'goBack','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white 
+                   dark:bg-blue-700 dark:hover:bg-blue-800
+                   inline-flex items-center px-4 py-2 rounded transition']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('filament::button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['wire:click' => 'goBack','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center px-4 py-2 rounded transition']); ?>
+<?php $component->withAttributes(['wire:click' => 'goBack','class' => 'absolute left-0 bg-blue-600 hover:bg-blue-700 text-white 
+                   dark:bg-blue-700 dark:hover:bg-blue-800
+                   inline-flex items-center px-4 py-2 rounded transition']); ?>
             ← Back
          <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -92,34 +109,62 @@
 <?php unset($__componentOriginal6330f08526bbb3ce2a0da37da512a11f); ?>
 <?php endif; ?>
 
-        <h1 class="text-2xl font-bold text-center"><?php echo e($company->company_name); ?> Dashboard</h1>
+        <h1 class="text-2xl font-bold text-center 
+                   text-gray-900 dark:text-gray-100">
+            <?php echo e($company->company_name); ?> Dashboard
+        </h1>
     </div>
 
+    
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-        <div class="bg-white shadow rounded-lg p-6 text-center">
+        <div class="rounded-lg p-6 text-center shadow 
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100
+                    border border-gray-200 dark:border-gray-700">
             <div class="text-3xl font-bold"><?php echo e($totalAdmins); ?></div>
-            <div class="text-gray-600 mt-2">Total Admins</div>
+            <div class="text-gray-600 dark:text-white mt-2">Total Admins</div>
         </div>
-        <div class="bg-white shadow rounded-lg p-6 text-center">
+
+        <div class="rounded-lg p-6 text-center shadow 
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100
+                    border border-gray-200 dark:border-gray-700">
             <div class="text-3xl font-bold"><?php echo e($totalManagers); ?></div>
-            <div class="text-gray-600 mt-2">Total Managers</div>
+            <div class="text-gray-600 dark:text-white mt-2">Total Managers</div>
         </div>
-        <div class="bg-white shadow rounded-lg p-6 text-center">
+
+        <div class="rounded-lg p-6 text-center shadow 
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100
+                    border border-gray-200 dark:border-gray-700">
             <div class="text-3xl font-bold"><?php echo e($totalUsers); ?></div>
-            <div class="text-gray-600 mt-2">Total Users</div>
+            <div class="text-gray-600 dark:text-white mt-2">Total Users</div>
         </div>
-        <div class="bg-white shadow rounded-lg p-6 text-center">
-            <div class="text-xl font-bold text-green-600"><?php echo e($totalStorageUsed); ?></div>
-            <div class="text-gray-600 mt-2">Total Storage Used</div>
+
+        <div class="rounded-lg p-6 text-center shadow 
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100
+                    border border-gray-200 dark:border-gray-700">
+            <div class="text-xl font-bold text-green-600 dark:text-green-400">
+                <?php echo e($totalStorageUsed); ?>
+
+            </div>
+            <div class="text-gray-600 dark:text-white mt-2">Total Storage Used</div>
         </div>
-        <div class="bg-white shadow rounded-lg p-6 text-center">
+
+        <div class="rounded-lg p-6 text-center shadow 
+                    bg-white dark:bg-gray-800
+                    text-gray-900 dark:text-gray-100
+                    border border-gray-200 dark:border-gray-700">
             <div class="text-3xl font-bold"><?php echo e($totalPhotos); ?></div>
-            <div class="text-gray-600 mt-2">Total Photos</div>
+            <div class="text-gray-600 dark:text-white mt-2">Total Photos</div>
         </div>
     </div>
 
+    
     <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl font-bold">Users</h2>
+        <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">Users</h2>
+
         <?php if (isset($component)) { $__componentOriginal6330f08526bbb3ce2a0da37da512a11f = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal6330f08526bbb3ce2a0da37da512a11f = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.button.index','data' => ['wire:click' => 'createNewUserPage','color' => 'primary']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -143,18 +188,27 @@
 <?php endif; ?>
     </div>
 
-    <table class="min-w-full bg-white rounded-lg shadow overflow-hidden mb-6">
+    
+    <table class="min-w-full rounded-lg shadow overflow-hidden mb-6
+                  bg-white dark:bg-gray-800
+                  text-gray-900 dark:text-gray-100
+                  border border-gray-200 dark:border-gray-700">
+
         <thead>
-            <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+            <tr class="bg-gray-100 dark:bg-gray-700 
+                       text-gray-600 dark:text-gray-200 
+                       uppercase text-sm leading-normal">
                 <th class="py-3 px-6 text-left">Name</th>
                 <th class="py-3 px-6 text-left">Email</th>
                 <th class="py-3 px-6 text-left">Role</th>
                 <th class="py-3 px-6 text-left">Actions</th>
             </tr>
         </thead>
-        <tbody class="text-gray-600 text-sm">
+
+        <tbody class="text-gray-600 dark:text-white text-sm">
             <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr class="border-b hover:bg-gray-50">
+                <tr class="border-b border-gray-200 dark:border-gray-700 
+                           hover:bg-gray-50 dark:hover:bg-gray-700/50">
                     <td class="py-3 px-6"><?php echo e($user->name); ?></td>
                     <td class="py-3 px-6"><?php echo e($user->email); ?></td>
                     <td class="py-3 px-6 capitalize"><?php echo e($user->role); ?></td>
@@ -184,8 +238,10 @@
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
         </tbody>
+
     </table>
-<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
+
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
