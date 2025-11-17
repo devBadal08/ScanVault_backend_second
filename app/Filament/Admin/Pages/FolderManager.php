@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Services\GoogleSheetService;
 
 class FolderManager extends Page implements Forms\Contracts\HasForms
 {
@@ -65,11 +66,22 @@ class FolderManager extends Page implements Forms\Contracts\HasForms
                     $parent = Folder::find($data['parent_id'] ?? null);
                     $path = $parent ? "{$parent->name}/{$data['folderName']}" : $data['folderName'];
 
-                    Folder::create([
+                    $folder = Folder::create([
                         'name' => $path,
                         'user_id' => $user->id,
                         'parent_id' => $parent?->id,
                     ]);
+
+                    try {
+                        $sheet = new GoogleSheetService();
+                        $sheet->addRow($user->id, $folder->name);
+                    } catch (\Exception $e) {
+                        Notification::make()
+                            ->title('Google Sheet Sync Failed')
+                            ->body($e->getMessage())
+                            ->danger()
+                            ->send();
+                    }
 
                     Notification::make()
                         ->title("Folder '{$path}' created successfully!")
